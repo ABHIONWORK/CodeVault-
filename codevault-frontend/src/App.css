@@ -1,0 +1,253 @@
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #f3f4f6;
+  background-color: #111827;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.top-bar h1 {
+  font-size: 2.2rem;
+  color: #60a5fa;
+  margin: 0;
+}
+
+.header p {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #065f46;
+  color: #a7f3d0;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.guest-badge {
+  background: #374151;
+  color: #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+}
+
+.btn-logout {
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.card-box {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.auth-form, .create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.auth-form input, .create-form input, .create-form select, .create-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.code-area-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-area-wrapper textarea {
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.btn-ai {
+  align-self: flex-end;
+  margin-top: 0.5rem;
+  background: #8b5cf6;
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-ai:hover {
+  background: #7c3aed;
+}
+
+.btn-primary, .btn-submit {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover, .btn-submit:hover {
+  background: #1d4ed8;
+}
+
+.error-text {
+  color: #f87171;
+  margin-top: 0.5rem;
+}
+
+.form-msg {
+  color: #34d399;
+  margin-top: 0.5rem;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 9999px;
+  border: 2px solid #374151;
+  background: #1f2937;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15);
+}
+
+.status {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fbbf24;
+  margin: 2rem 0;
+}
+
+.status.error {
+  color: #f87171;
+}
+
+.snippet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.snippet-card {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.snippet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  border-color: #60a5fa;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #f9fafb;
+}
+
+.badge {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag-badge {
+  background: #374151;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.code-block {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: #34d399;
+}

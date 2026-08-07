@@ -1,0 +1,61 @@
+services:
+  # 🗄️ 1. MySQL Database Container (Pantry)
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: codevault-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: codevault
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    networks:
+      - codevault-network
+
+  # ⚙️ 2. Spring Boot Backend Container (Kitchen)
+  backend:
+    build:
+      context: ./codevault-backend
+      dockerfile: Dockerfile
+    container_name: codevault-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/codevault
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    networks:
+      - codevault-network
+
+
+  # 🌐 3. React Frontend Container (Dining Room)
+  frontend:
+    build:
+      context: ./codevault-frontend
+      dockerfile: Dockerfile
+    container_name: codevault-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    networks:
+      - codevault-network
+
+networks:
+  codevault-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
