@@ -11,7 +11,7 @@ import java.util.List;
 public interface SnippetRepository extends JpaRepository<Snippet, Long> {
 
     // Spring Data JPA automatically generates SQL from this method name:
-    // SELECT * FROM snippet WHERE LOWER(title) LIKE %keyword% OR LOWER(tags) LIKE %keyword%
+    // SELECT * FROM snippet WHERE LOWER(title) LIKE %keyword% OR LOWER(tags) LIKE
+    // %keyword%
     List<Snippet> findByTitleContainingIgnoreCaseOrTagsContainingIgnoreCase(String titleKey, String tagsKey);
 }
-
